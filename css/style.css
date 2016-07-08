@@ -1,0 +1,37 @@
+.container {
+	margin: 50px;
+	width: 600px;
+}
+
+.intro {
+    margin-left: 45px;
+}
+
+.search-artist {
+   float: left;
+   margin-left: 50px;
+}
+
+#map {
+    height: 277px;
+}
+
+.img-responsive {
+    width: 200px;
+    height: 100px;
+}
+
+.search_map {
+    float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+li {
+    display: block;
+    padding: 5px;
+	margin-right: 200px;
+	border: 1px solid black
+}
