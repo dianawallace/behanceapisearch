@@ -8,7 +8,7 @@ $(function() {
     $('form').submit(function(e) {
         e.preventDefault();
         artist = $(this).find("input[name='artists']").val();
-        console.log(artist);
+        //console.log(artist);
 
         var behance_url = 'https://api.behance.net/v2/users?';
         var parameters = {
@@ -18,7 +18,7 @@ $(function() {
         };
 
         function getArtist(data) {
-            console.log(data);
+            //console.log(data);
         }
         //$.getJSON(behance_url, parameters, getArtist);
 
@@ -32,9 +32,9 @@ $(function() {
             dataType: "jsonp", //use jsonp to avoid cross origin issues
             type: "GET",
             success: function getData(data) {
-                console.log(data);
+                //console.log(data);
                 showResults(data.users);
-                console.log(data.users);
+                //console.log(data.users[0]);
 
                 // if (data.ok) {
                 //     if (data.count > 0) {
@@ -60,7 +60,8 @@ $(function() {
     }); // end of form
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiZGlhbmF3YWxsYWNlIiwiYSI6ImNpcWNmbDFkbzAyOG1mbG0xb3VyNnA1cXYifQ.MkDM9QfSVDxHas9Mk3f1pA';
-
+    var map = L.mapbox.map('map', 'examples.map-h67hf2ic');
+    
     // Top artists search on Behance 
     var showResults = function(artists) {
 
@@ -72,17 +73,23 @@ $(function() {
         //displayName.attr('href', artists.user.link);
         //displayName.html('<a target="_blank" https://api.behance.net/v2/users' + artists.users + '/' + artists.users.display_name + '">' + artists.users.display_name + '" </a>');
 
-        console.log(artists);
+        //console.log(artists);
         $.each(artists, function(i, u) {
-            console.log(u.display_name);
+            //console.log(u.display_name);
             var the_name = u.display_name;
             var the_fields = u.fields;
             var the_country = u.country;
-            var map; 
+            //console.log(the_country);
+            console.log(u);
+            //var map = L.mapbox.map('map', 'examples.map-h67hf2ic');
             //map.remove();
             var geocoder = L.mapbox.geocoder('mapbox.places');
-                map = L.mapbox.map('map', 'examples.map-h67hf2ic');
-
+                
+            //if (map === initialized) {
+	        //    map.remove();
+            //    } else {
+            	// Nothing....
+            // }
             geocoder.query(the_country, showMap);
 
             function showMap(err, data) {
@@ -101,7 +108,7 @@ $(function() {
             var name_list = $('.names');
             if (artist.toLowerCase() == u.display_name.toLowerCase()) {
                 var template = '<ul class="name_list"><li> ' + the_name + '</li>' + '<li> ' + the_fields + '</li>' + '<li> ' + the_country + '</li></ul>';
-                name_list.append(template);
+                name_list.html(template);
             }
         })
 
