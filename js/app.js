@@ -7,7 +7,10 @@ $(function() {
     var artist;
     $('form').submit(function(e) {
         e.preventDefault();
+        // zero out results if previous search has run
+		$('.artist-getter').html('');
         artist = $(this).find("input[name='artists']").val();
+       
         //console.log(artist);
 
         var behance_url = 'https://api.behance.net/v2/users?';
@@ -34,8 +37,7 @@ $(function() {
             success: function getData(data) {
                 //console.log(data);
                 showResults(data.users);
-                //console.log(data.users[0]);
-
+                console.log(data.users);
                 // if (data.ok) {
                 //     if (data.count > 0) {
                 //         //$.each is a higher order function. It takes an array and a function as an argument.
@@ -44,7 +46,6 @@ $(function() {
                 //                 var popularArtists = showResults(item);
 
                 //                 $('.results').append(popularArtists);
-
                 //         });
                 //     }
                 //     else {
@@ -62,36 +63,28 @@ $(function() {
     L.mapbox.accessToken = 'pk.eyJ1IjoiZGlhbmF3YWxsYWNlIiwiYSI6ImNpcWNmbDFkbzAyOG1mbG0xb3VyNnA1cXYifQ.MkDM9QfSVDxHas9Mk3f1pA';
     var map = L.mapbox.map('map', 'examples.map-h67hf2ic');
     
-    // Top artists search on Behance 
+    // artists search on Behance 
     var showResults = function(artists) {
 
         // clone our result template code
         var result = $('.templates .user').clone();
 
-        // Show the artists name in result
-        //var displayName = result.find('.display_name');
-        //displayName.attr('href', artists.user.link);
-        //displayName.html('<a target="_blank" https://api.behance.net/v2/users' + artists.users + '/' + artists.users.display_name + '">' + artists.users.display_name + '" </a>');
-
         //console.log(artists);
         $.each(artists, function(i, u) {
-            //console.log(u.display_name);
+            console.log(u.display_name);
+            var the_images = u.images;
+            var user_name = u.username;
             var the_name = u.display_name;
             var the_fields = u.fields;
-            var the_country = u.country;
-            //console.log(the_country);
-            console.log(u);
-            //var map = L.mapbox.map('map', 'examples.map-h67hf2ic');
-            //map.remove();
+            var the_location = u.location;
+            var the_stats = u.stats;
+            //console.log(u_stats);
+            //console.log(u.images);
+            
             var geocoder = L.mapbox.geocoder('mapbox.places');
                 
-            //if (map === initialized) {
-	        //    map.remove();
-            //    } else {
-            	// Nothing....
-            // }
-            geocoder.query(the_country, showMap);
-
+            geocoder.query(the_location, showMap);
+            
             function showMap(err, data) {
                 // The geocoder can return an area, like a city, or a
                 // point, like an address. Here we handle both cases,
@@ -102,26 +95,51 @@ $(function() {
                 else if (data.latlng) {
                     map.setView([data.latlng[0], data.latlng[1]], 13);
                 }
+            
+        L.mapbox.featureLayer({
+        // this feature is in the GeoJSON format: see geojson.org
+        // for the full specification
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            // coordinates here are in longitude, latitude order because
+            // x, y is the standard for GeoJSON and many formats
+            coordinates: [
+                -77.03221142292,
+                38.913371603574 
+            ]
+        },
+        properties: {
+            title: 'Peregrine Espresso',
+            description: '1718 14th St NW, Washington, DC',
+            // one can customize markers by adding simplestyle properties
+            // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+            'marker-size': 'large',
+            'marker-color': '#BE9A6B',
+            'marker-symbol': 'cafe'
             }
-                
-
+        }).addTo(map);
+                }
+            //show artist results
             var name_list = $('.names');
             if (artist.toLowerCase() == u.display_name.toLowerCase()) {
-                var template = '<ul class="name_list"><li> ' + the_name + '</li>' + '<li> ' + the_fields + '</li>' + '<li> ' + the_country + '</li></ul>';
-                name_list.html(template);
-            }
+                var template = '<ul class="name_list"> <li> <img src = "' + the_images['138'] + '"/>' + '</li> <a target="_blank" href="https://www.behance.net/' + u.username +'">'  + 
+                the_name + ' </a></li>' + '<li> ' + the_fields + '</li>' + '<li> ' + the_location + '</li> ' + '<li> ' + the_stats + '</li></ul>';
+                name_list.append(template);
+             }
         })
+                // show artists profile image
+                //result.find('.images').attr('src', artists.images);
+                
+                //show artists fields in result
+                //result.find('.fields').text(artists.fields);
 
-        //show artists fields in result
-        result.find('.fields').text(artists.fields);
+                //show artists country in result
+                //result.find('.location').text(artists.location);
+                
+                //show artists stats in result - followers and appreciations
+                //result.find('.stats').text(artists.stats);
 
-        //show artists post count in result
-        result.find('.country').text(artists.country);
-
-        return result;
-    };
-
-
-
-
+            return result;
+        };
 }); // end of jQuery
