@@ -1,3 +1,7 @@
+
+body {
+    background-color: #2a3ad8;
+}
 .container {
 	margin: 50px;
 	width: 600px;
@@ -5,11 +9,22 @@
 
 .intro {
     margin-left: 45px;
+    color: #ebecf7;
 }
+
+h3 {
+    color: #ebecf7;
+}
+
 
 .search-artist {
    float: left;
    margin-left: 50px;
+}
+
+.name_list {
+    background-color: #ebecf7;
+    color: #2a3ad8;
 }
 
 #map {
