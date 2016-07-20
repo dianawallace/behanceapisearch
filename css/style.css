@@ -2,43 +2,36 @@
 body {
     background-color: #2a3ad8;
 }
+
+
 .container {
 	margin: 50px;
 	width: 600px;
+	color: #ebecf7;
 }
 
 .intro {
     margin-left: 45px;
-    color: #ebecf7;
 }
-
-h3 {
-    color: #ebecf7;
-}
-
 
 .search-artist {
    float: left;
    margin-left: 50px;
 }
 
-.name_list {
-    background-color: #ebecf7;
-    color: #2a3ad8;
+.names {
+    color: blue;
 }
 
-#map {
+/*#map {
     height: 277px;
 }
 
 .img-responsive {
     width: 200px;
     height: 100px;
-}
+}*/
 
-.search_map {
-    
-}
 
 .hidden {
 	display: none;
@@ -49,5 +42,6 @@ ul {
     list-style-type: none;
     padding: 5px;
 	margin-right: 200px;
-	border: 1px solid black
+	border: 1px solid black;
+	background-color: #ebecf7;
 }
