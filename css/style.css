@@ -3,45 +3,45 @@ body {
     background-color: #2a3ad8;
 }
 
-
 .container {
 	margin: 50px;
-	width: 600px;
 	color: #ebecf7;
 }
 
 .intro {
-    margin-left: 45px;
+    text-align:center;
+}
+
+.artist-getter {
+    color: black;
 }
 
 .search-artist {
-   float: left;
-   margin-left: 50px;
+   /*float: left;*/
+   text-align: center;
 }
 
-.names {
+.names ul {
     color: blue;
+    background-color: #ebecf7;
+    /*width: 33%;*/
+    text-align: center;
+    
 }
 
-/*#map {
-    height: 277px;
+.projects {
+    
+
 }
-
-.img-responsive {
-    width: 200px;
-    height: 100px;
-}*/
-
 
 .hidden {
 	display: none;
 }
 
 ul {
+    text-align: center;
     display: block;
     list-style-type: none;
     padding: 5px;
-	margin-right: 200px;
-	border: 1px solid black;
-	background-color: #ebecf7;
+    margin-top: 100px;
 }

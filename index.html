@@ -1,46 +1,57 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title> Diana Wallace Behance Api App </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
- 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700italic,700' rel='stylesheet' type='text/css'>    
-	<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-	<link rel="stylesheet" href="css/style.css">
-	
-</head>
-<body>
-    <div class="container">
-    	<div class="intro">
-        	<h2>Search popular Behance artists and their location</h2>
-        	<p>This app allows you to search for your favorite artists and their location.</p>
+    <html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title> Diana Wallace Behance Api App </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="normalize stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700italic,700' rel='stylesheet' type='text/css'>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="intro">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Search popular Behance artists and their projects</h2>
+                        <p>This app allows you to search for your favorite artists and their art projects.</p>
+                    </div>
+                </div>    
+            </div>
+            <div class="search-artist">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Search for your favorite artists</h3>
+                    <form class="artist-getter">
+                        <input type="text" placeholder="e.g., artists name" name="artists" size="30" required>
+                        <input type="submit" value="submit">
+                    </form>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="names">
+
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="projects">
+                            
+                        </div>
+                    </div>
+                   
         </div>
-        <div class="search-artist">
-        	<h3>Search for your favorite artists</h3>
-				<form class="artist-getter">
-					<input type="text" placeholder="e.g., artists name" name="artists" size="30"  required>
-					<input type="submit" value="submit">
-				</form>
-				<div class="names"> 
-                    
-				</div>
-				<div class="projects">
-					
-				</div>
-			</div>
-		</div>
-		<div class="search_map">
-			<div id="map"></div>
-			<!--<img class="img-responsive" src="images/google-map.png" alt="Responsive image"><-->
-		</div>
-			<div class="templates">
-			
-    		</div>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-    <script src="js/app.js"></script>
-</body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+        <script src="js/app.js"></script>
+    </body>
+
 </html>
