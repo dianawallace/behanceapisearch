@@ -9,6 +9,7 @@ $(function() {
         e.preventDefault();
         // zero out results if previous search has run
         $('.names').html('');
+        $('.projects').html('');
         artist = $(this).find("input[name='artists']").val();
 
         var behance_url = 'https://api.behance.net/v2/users?';
