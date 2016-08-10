@@ -1,10 +1,12 @@
-
+* {
+    box-sizing: border-box;
+}
 body {
     background-color: #2a3ad8;
+    min-width: 320px;
 }
 
 .container {
-	margin: 50px;
 	color: #ebecf7;
 }
 
@@ -14,6 +16,9 @@ body {
 
 .artist-getter {
     color: black;
+}
+.artist-name {
+    width: 100%;
 }
 
 .search-artist {
@@ -25,16 +30,21 @@ body {
     background-color: #ebecf7;
     text-align: center;
     margin: 100px auto;
+    box-shadow: 10px 10px 5px #42497a;
 
 }
-
+.projects {
+    text-align: center;
+}
 .projects_list {
-    display: inline-block;
     background-color: #ebecf7;
-    margin: 10px;
     color: blue;
+    box-shadow: 10px 10px 5px #42497a;
 }
 
+.projects_list li img {
+    width: 100%;
+}
 .hidden {
 	display: none;
 }
@@ -49,19 +59,29 @@ ul {
     padding: 5px;
 }
 
-
-
-
 /*Media Queries */
+
 
 @media screen and (min-width: 500px) {
     
-.names ul {
-    width: 50%;
-} 
+    .names ul {
+        width: 50%;
+    } 
+    .projects_list {
+        width: 46%;
+        margin: 2%;
+        float: left;
+        height: 200px;
+    }
 
-.projects_list {
-    width: 30%;
 }
+
+@media screen and (min-width: 768px) {
+    
+
+    .projects_list {
+        width: 28.5%;
+        margin: 2%;
+    }
 
 }

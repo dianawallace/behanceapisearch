@@ -53,10 +53,7 @@ $(function() {
     
                     get_projects(u.username);
                 }
-
-                
             } 
-            
         });
         return result;
     };
@@ -70,7 +67,6 @@ $(function() {
                     var the_name = project.name;
                     var the_covers = project.covers['115'];
                     var the_owners = project.owners;
-
                     
                     if (artist.toLowerCase() == project.owners[0].display_name.toLowerCase()) {
                         var template = "<ul class='projects_list'><li><img src='" + project.covers['202'] + "'/>" + "</li><li>" + project.name + "</li></ul>";
